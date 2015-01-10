@@ -22,7 +22,10 @@ public class TaskRunnable implements Runnable {
 		count.incrementAndGet();
 		}
 	public int getCount() {
+		count.get();
 		return count.get();
+	
+ 
 		}
 }
 
