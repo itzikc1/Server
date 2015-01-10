@@ -7,26 +7,23 @@ import model.SearchDomain;
 import model.State;
 
 public class EightPuzzleDomain implements SearchDomain {
-	private String problem;//Problem Description
+	private String problem;// Problem Description
 	private EightPuzzleState start;
 	private EightPuzzleState goal = new EightPuzzleState("012345678");
+
 	public EightPuzzleDomain(String matrix) {
-		this.problem=matrix;
+		this.problem = matrix;
 		this.start = new EightPuzzleState(matrix);
 		System.out.println("\n");
-
 	}
 
 	@Override
 	public State getStartState() {
-		// TODO Auto-generated method stub
-
 		return start;
 	}
 
 	@Override
 	public State getGoalState() {
-		// TODO Auto-generated method stub
 		return goal;
 	}
 
@@ -118,6 +115,7 @@ public class EightPuzzleDomain implements SearchDomain {
 
 		return moves;
 	}
+
 	@Override
 	public int HScore(State current) {
 
@@ -138,6 +136,7 @@ public class EightPuzzleDomain implements SearchDomain {
 		return a.getGprice();
 
 	}
+
 	@Override
 	public int GScore(State current) {
 		EightPuzzleState a = (EightPuzzleState) current;
@@ -156,6 +155,7 @@ public class EightPuzzleDomain implements SearchDomain {
 
 		return a.getHprice();
 	}
+
 	@Override
 	public String getProblemDescription() {
 		return this.problem;

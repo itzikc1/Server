@@ -11,16 +11,10 @@ import java.util.HashMap;
 public class SolutionManager {
 	private HashMap<String, Solution> solutionsMap;
 	private static SolutionManager instance = null;
-	private static final String FILE_NAME = "solutions.dat";// Create file
-															// solutions.dat for
-															// all solutions
-															// until
-
+	private static final String FILE_NAME = "resources/solutions.dat";// Create file solutions.dat for all solutions until
 	protected SolutionManager() {
-		solutionsMap = new HashMap<String, Solution>();// HashMap of action with
-														// solutions
+		solutionsMap = new HashMap<String, Solution>();// HashMap of action with solutions												
 	}
-
 	public static SolutionManager getInstance() {
 		if (instance == null) {
 			instance = new SolutionManager();

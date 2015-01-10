@@ -56,6 +56,7 @@ public class MyTCPIPServer {
 		try {
 			thread.interrupt();// wake up all the thread
 			executor.shutdownNow();// shutdown now all the thread 
+			//server.isBound();
 			server.close();
 		} catch (IOException e) {
 			System.out.println("no client connect");

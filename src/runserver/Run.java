@@ -34,9 +34,9 @@ public class Run {
 			}
 			server.startServer();
 		} else if (sp[0].equals("exit")) {
-			server.stopServer();
 			// save Solutions
 			SolutionManager.getInstance().saveSolutionsInFile();
+			server.stopServer();		
 		} else {
 			System.out.println("Invalid command. Try again");
 		}

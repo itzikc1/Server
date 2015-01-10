@@ -24,9 +24,6 @@ public class TaskRunnable implements Runnable {
 	public int getCount() {
 		count.get();
 		return count.get();
-		//itzik
-	
- 
 		}
 }
 
