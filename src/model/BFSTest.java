@@ -33,7 +33,7 @@ public class BFSTest {
 
 	@Test
 	public void testSaerch() {
-		MazeGameDomain domain = new MazeGameDomain(5, 5, 0);
+		MazeGameDomain domain = new MazeGameDomain(5, 5,"0");
 		ArrayList<Action> saerch = bfs.saerch(domain);
 		assertEquals(8, saerch.size());
 		

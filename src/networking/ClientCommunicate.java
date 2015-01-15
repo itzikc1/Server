@@ -31,6 +31,11 @@ public class ClientCommunicate implements Task{
 			model.selectAlgorithm(problem.getAlgorithm());	
 		    model.solveDomain();
 		    Solution solution = model.getSolution();//get the Solution
+		    for (Action a : solution.getAction())
+			{	
+				System.out.print( a.getActionName());
+				System.out.print( " -> ");
+			}	
 		    out.writeObject(solution);//send the Solution				
 		} catch (IOException e) {			
 			e.printStackTrace();
