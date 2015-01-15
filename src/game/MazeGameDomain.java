@@ -98,7 +98,9 @@ public class MazeGameDomain implements SearchDomain{
 		maze[arr[i]][num++].setWall(true);
 		//add to string the wall for the key in solution file
 		this.wall1+=String.valueOf(arr[i]);
+		this.wall1+=" ";
 		this.wall1+=String.valueOf(num++);
+		this.wall1+=" ";
 		}		
 	}
 	@Override
@@ -134,7 +136,7 @@ public class MazeGameDomain implements SearchDomain{
 	//Create the key for this specific maze 
 	@Override
 	public String getProblemDescription() {
-		return "start State: " + getStartState().stateToString() + ",final State:" + getGoalState().stateToString() + ",walls State:" + getWall1() ;
+		return "start State:" + getStartState().stateToString() + ",final State:" + getGoalState().stateToString() + ",walls State:" + getWall1() ;
 		
 	}
 }

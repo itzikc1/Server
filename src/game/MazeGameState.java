@@ -49,6 +49,6 @@ public class MazeGameState extends State{
 	public String stateToString() {
 		String sStateX=String.valueOf(stateX);
 		String sStatey=String.valueOf(stateY);
-		return sStateX+sStatey+",";
+		return sStateX+" "+sStatey;
 	}	
 }
