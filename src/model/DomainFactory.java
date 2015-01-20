@@ -3,8 +3,9 @@ import game.*;
 
 
 public class DomainFactory {
-	private int row,col,wall;
-	private String  colNum,EightPuzzleOrRow,wallNum;
+	private int row,col;
+	private String wall;
+	private String  colNum,EightPuzzleOrRow;
 	/*DomainName it for the name of Domain and all the other parameter for began */
 	public SearchDomain getDomain (String DomainName)
 	{
@@ -12,9 +13,11 @@ public class DomainFactory {
 		String[] arr = DomainName.split(" ");
 		String domainName = arr[0];
 		if (arr.length >= 3) {
-			EightPuzzleOrRow = arr[1];
-			colNum = arr[2];
-			wallNum = arr[3];			
+			EightPuzzleOrRow = arr[7];
+			colNum = arr[8];
+			for(int i=12;i<arr.length;i++)
+			wall += arr[i]+" ";
+		
 		}
 		else{
 			EightPuzzleOrRow = arr[1];
@@ -24,7 +27,7 @@ public class DomainFactory {
 		{
 			row = Integer.parseInt(EightPuzzleOrRow);
 			col = Integer.parseInt(colNum);
-			wall =Integer.parseInt(wallNum);
+			
 			return new MazeGameDomain(row,col,wall);//enter the number to start Maze
 		}
 		if(domainName.equalsIgnoreCase("EightPuzzle"))
@@ -36,10 +39,18 @@ public class DomainFactory {
 	private void settingNull(){
 		this.colNum=null;
 		this.EightPuzzleOrRow=null;
-		this.wallNum=null;
 		this.row=0;
 		this.col=0;
-		this.wall=0;	
+		this.wall=" ";	
 	}
 }
 
+
+//this.problem = problem;	
+//String[] arr = problem.getDomainName().split(" ");
+//int [][] mazeData1=new int[Integer.parseInt(arr[6])+1][Integer.parseInt(arr[7])+1];	
+//       for(int k=11;k<arr.length-1;k++)
+//       {	    			
+//	    mazeData1[Integer.parseInt(arr[k])][Integer.parseInt(arr[k+1])]=1;		
+//       }
+//setMazeData(mazeData1);	

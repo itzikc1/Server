@@ -3,6 +3,7 @@ package game;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
+
 import model.Action;
 import model.SearchDomain;
 import model.State;
@@ -11,13 +12,13 @@ public class MazeGameDomain implements SearchDomain{
 	MazeGameState start,goal;
 	public  MazeGameState [][] maze;
 	private int row,coll;
-	int numberOfWalls;
+	String numberOfWalls;
 	//add to String the wall for the key in solution file
-	public String wall1=null;
+	//public String wall1=" ";
 	public String getWall1() {
-		return wall1;
+		return numberOfWalls;
 	}
-	public  MazeGameDomain(int row , int coll, int numberOfWalls)
+	public  MazeGameDomain(int row , int coll, String numberOfWalls)
 	{
 		this.numberOfWalls=numberOfWalls;
 		this.row=row;
@@ -82,25 +83,14 @@ public class MazeGameDomain implements SearchDomain{
 	//create Wall Maze
 	public void createWallMaze()
 	{	
-		Random rand= new Random();
-		int arr[]= new int[numberOfWalls];
+		String[] arr = numberOfWalls.split(" ");
+		for(int i=1;i<arr.length;i+=2)
+		{
+		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
 		
-		for (int i=0; i<arr.length;i++){
-		int  n = rand.nextInt(coll);
-		arr[i]=n;}		
-		Arrays.sort(arr);	
-		for (int i=0; i<arr.length;i++){
-			int  n = rand.nextInt(coll);
-			arr[i]=n;}
-		
-		int num=0;
-		for (int i=0; i<arr.length;i++){
-		maze[arr[i]][num++].setWall(true);
-		//add to string the wall for the key in solution file
-		this.wall1+=String.valueOf(arr[i]);
-		this.wall1+=String.valueOf(num++);
-		}		
-	}
+		}
+	}		
+
 	@Override
 	public int GScore(State current) {
 		MazeGameState a=(MazeGameState)current;
@@ -134,7 +124,6 @@ public class MazeGameDomain implements SearchDomain{
 	//Create the key for this specific maze 
 	@Override
 	public String getProblemDescription() {
-		return "start State: " + getStartState().stateToString() + ",final State:" + getGoalState().stateToString() + ",walls State:" + getWall1() ;
-		
+		return "maze"+" "+"start State:" + " "+getStartState().stateToString() +" "+ ",final State:" +" "+ getGoalState().stateToString() +" "+ ",walls State:" +" "+ getWall1() ;
 	}
 }
