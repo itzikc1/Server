@@ -14,7 +14,6 @@ public class MazeGameDomain implements SearchDomain{
 	private int row,coll;
 	String numberOfWalls;
 	//add to String the wall for the key in solution file
-	//public String wall1=" ";
 	public String getWall1() {
 		return numberOfWalls;
 	}
@@ -27,7 +26,7 @@ public class MazeGameDomain implements SearchDomain{
 		createRandomMaze();
 		createWallMaze();	
 		start=maze[0][0];	
-		goal=maze[row-1][coll-1];
+		goal=maze[row-2][coll-1];
 	 System.out.println("\n");
 	}
 	public void createRandomMaze()
@@ -100,8 +99,7 @@ public class MazeGameDomain implements SearchDomain{
 			
 			if(a.stateY>start.stateY)
 				a.setHprice(a.getHprice()+a.stateY-start.stateY);
-			else a.setHprice(a.getHprice()+start.stateY-a.stateY);
-			
+			else a.setHprice(a.getHprice()+start.stateY-a.stateY);			
 			if(a.equals(start))
 				return 0;
 			

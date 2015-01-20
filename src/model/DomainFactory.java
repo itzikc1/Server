@@ -25,8 +25,8 @@ public class DomainFactory {
 		//start the maze
 		if (domainName.equalsIgnoreCase("maze"))
 		{
-			row = Integer.parseInt(EightPuzzleOrRow);
-			col = Integer.parseInt(colNum);
+			row += Integer.parseInt(EightPuzzleOrRow);
+			col += Integer.parseInt(colNum);
 			
 			return new MazeGameDomain(row,col,wall);//enter the number to start Maze
 		}
@@ -39,18 +39,11 @@ public class DomainFactory {
 	private void settingNull(){
 		this.colNum=null;
 		this.EightPuzzleOrRow=null;
-		this.row=0;
-		this.col=0;
+		this.row=1;
+		this.col=1;
 		this.wall=" ";	
 	}
 }
 
 
-//this.problem = problem;	
-//String[] arr = problem.getDomainName().split(" ");
-//int [][] mazeData1=new int[Integer.parseInt(arr[6])+1][Integer.parseInt(arr[7])+1];	
-//       for(int k=11;k<arr.length-1;k++)
-//       {	    			
-//	    mazeData1[Integer.parseInt(arr[k])][Integer.parseInt(arr[k+1])]=1;		
-//       }
-//setMazeData(mazeData1);	
+
