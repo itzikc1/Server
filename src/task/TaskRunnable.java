@@ -6,8 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class TaskRunnable implements Runnable {
 	private Task t;
 	AtomicInteger count;
-	
-	
+
 	public TaskRunnable(Task t) {
 		this.t = t;
 		count=new AtomicInteger(0);
@@ -18,7 +17,6 @@ public class TaskRunnable implements Runnable {
 		inc();
 	}
 	public void inc(){
-		// count++;
 		count.incrementAndGet();
 		}
 	public int getCount() {
