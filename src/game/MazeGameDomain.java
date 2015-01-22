@@ -10,6 +10,7 @@ import model.State;
 
 public class MazeGameDomain implements SearchDomain{
 	MazeGameState start,goal;
+	int counter=0;
 	public  MazeGameState [][] maze;
 	private int row,coll;
 	String numberOfWalls;
@@ -58,36 +59,51 @@ public class MazeGameDomain implements SearchDomain{
 		Action right=new Action("Right");
 		Action down=new Action("Down");
 		Action up=new Action("Up");	
-		if(current.getWall() == false)
-		{	
+	
+		if(a.getWall() == false)
+	{	
+			//System.out.print(a.stateX+ " "+a.stateY);
+
 		if(a.stateX>0)
-		{
+		{//System.out.print(" left");
 			moves.put(left, maze[a.stateX-1][a.stateY]);	
 		}
-		if (a.stateX<(coll-1))
-		{		
-			moves.put(right, maze[a.stateX+1][a.stateY]);
-		}
 		if (a.stateY>0 )
-		{
+		{ //System.out.print(" up");
 			moves.put(up, maze[a.stateX][a.stateY-1]);
 		}
-		if (a.stateY<row-1)
-		{
-			moves.put(down, maze[a.stateX][a.stateY+1]);		
+		if (a.stateX<(coll-1))
+		{	//	System.out.print(" right");
+			moves.put(right, maze[a.stateX+1][a.stateY]);
 		}
-		}	
+	
+		if (a.stateY<row-1) 
+		{//System.out.print(" down");
+			moves.put(down, maze[a.stateX][a.stateY+1]);	
+		}
+	}	
+		counter++;
 		return moves;
  }
 	//create Wall Maze
 	public void createWallMaze()
 	{	
-		String[] arr = numberOfWalls.split(" ");
-		for(int i=1;i<arr.length;i+=2)
-		{
-		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
-		
-		}
+//		String[] arr = numberOfWalls.split(" ");
+//		for(int i=1;i<arr.length;i+=2)
+//		{
+//		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
+	
+//		maze[1][0].setWall(true);
+//		maze[2][0].setWall(true);
+//		maze[3][0].setWall(true);
+//		maze[4][0].setWall(true);
+		maze[0][1].setWall(true);
+		maze[0][2].setWall(true);
+		maze[0][3].setWall(true);
+		maze[0][4].setWall(true);
+		//maze[1][1].setWall(true);
+
+		//}
 	}		
 
 	@Override
