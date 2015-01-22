@@ -9,14 +9,7 @@ public class MazeGameState extends State{
 		super(price);
 		this.stateX=stateX;
 		this.stateY=stateY;
-		//Scanner scanner = new Scanner(System.in);
-		//System.out.println("if you want to watch the maze enter yes or no:");
-		//input = scanner.nextLine();
-		//if (input.equals("yes"))
-		//{
-		
-	     System.out.print(+stateX+","+stateY+","+"|");
-		//}
+	
 	}
 	public int getStateX()
 	{

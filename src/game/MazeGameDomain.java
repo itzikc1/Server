@@ -27,7 +27,7 @@ public class MazeGameDomain implements SearchDomain{
 		createRandomMaze();
 		createWallMaze();	
 		start=maze[0][0];	
-		goal=maze[row-2][coll-1];
+		goal=maze[row-1][coll-2];
 	 System.out.println("\n");
 	}
 	public void createRandomMaze()
@@ -39,7 +39,6 @@ public class MazeGameDomain implements SearchDomain{
 				System.out.print("|");
 				maze[i][j]= new MazeGameState(i, j,String.valueOf(1));             
 			}	
-			System.out.println("");	
 			}
 	}		
 	 public State getStartState() {	
@@ -87,17 +86,6 @@ MazeGameState a=(MazeGameState)current;
 		for(int i=1;i<arr.length;i+=2)
 		{
 		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
-	
-//		maze[1][0].setWall(true);
-//		maze[2][0].setWall(true);
-//		maze[3][0].setWall(true);
-//		maze[4][0].setWall(true);
-////		maze[0][1].setWall(true);
-////		maze[0][2].setWall(true);
-////		maze[0][3].setWall(true);
-////		maze[0][4].setWall(true);
-//	maze[1][1].setWall(true);
-
 		}
 	}		
 

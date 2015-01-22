@@ -24,8 +24,7 @@ public class ClientCommunicate implements Task{
 		try {
 			in = new ObjectInputStream(socket.getInputStream());//in get the input from socket
 			out = new ObjectOutputStream(socket.getOutputStream());	//out send the solution to socket
-			Problem problem = new Problem();
-			problem=(Problem)in.readObject();	
+			Problem problem = (Problem)in.readObject();	
 			//start the model machine with all parameter 
 			Model model = new MyModel();
 			model.selectDomain(problem.getDomainName());

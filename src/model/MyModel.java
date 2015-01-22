@@ -27,12 +27,12 @@ public class MyModel extends Observable implements Model {
 		solution = new Solution();
 		solution.setProblemDescription(domain.getProblemDescription());
 		//Check in HashMap of Solution Manager if the Solution inside him
-//		if(SolutionManager.getInstance().getSolution(domain.getProblemDescription())!=null)
-//		{
-//		solution=SolutionManager.getInstance().getSolution(domain.getProblemDescription());
-//		System.out.println("the Solution from Solution file");	
-//		}
-		//else{
+		if(SolutionManager.getInstance().getSolution(domain.getProblemDescription())!=null)
+		{
+		solution=SolutionManager.getInstance().getSolution(domain.getProblemDescription());
+		System.out.println("the Solution from Solution file");	
+		}
+		else{
 		ArrayList<Action> actions = algorithm.saerch(domain); 
 	    long startTimeMillis = System.nanoTime();//set the timer
 	    solution.setAction(actions);
@@ -41,7 +41,7 @@ public class MyModel extends Observable implements Model {
 	    solution.setTime(time);
 	   //add the solution to HashMap of SolutionManager
 	    SolutionManager.getInstance().addSolution(solution);
-		//}
+		}
    }
 	//get solution of the problem
 	@Override
