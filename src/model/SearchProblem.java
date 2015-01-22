@@ -23,12 +23,18 @@ public abstract class SearchProblem implements Searcher {
 		 }
 		 protected ArrayList<Action> generatePathToGoal(State state) {
 				ArrayList<Action> Action = new ArrayList<Action>();
+				ArrayList<Action> Actiontamp = new ArrayList<Action>();
 				do {
 					Action.add(state.lastAction);
 					state = state.parent;
 				} while (state.parent != null);			
-				return Action;
-			}		
+				
+				for(int i=Action.size();i>0;i--)
+				{
+					Actiontamp.add(Action.get(i-1));
+				}
+				return Actiontamp;
+			}	
 }
 
 

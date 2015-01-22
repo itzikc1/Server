@@ -53,57 +53,52 @@ public class MazeGameDomain implements SearchDomain{
 	//Create the All Possible Moves
 	@Override
 	public HashMap<Action, State> getAllPossibleMoves(State current) {
-		HashMap<Action,State> moves=new  HashMap<>();		
-		MazeGameState a=(MazeGameState)current;
+		HashMap<Action,State> moves=new  HashMap<>();
+MazeGameState a=(MazeGameState)current;
 		Action left=new Action("Left");
 		Action right=new Action("Right");
 		Action down=new Action("Down");
 		Action up=new Action("Up");	
-	
 		if(a.getWall() == false)
-	{	
-			//System.out.print(a.stateX+ " "+a.stateY);
-
-		if(a.stateX>0)
-		{//System.out.print(" left");
-			moves.put(left, maze[a.stateX-1][a.stateY]);	
+		{	
+		if((a.stateY>0) && (maze[a.stateX ][a.stateY-1].getWall()==false))
+		{
+			moves.put(left, maze[a.stateX ][a.stateY-1]);	
 		}
-		if (a.stateY>0 )
-		{ //System.out.print(" up");
-			moves.put(up, maze[a.stateX][a.stateY-1]);
+		if ((a.stateY < coll - 1) && (maze[a.stateX][a.stateY + 1].getWall()==false))
+		{		
+			moves.put(right, maze[a.stateX][a.stateY + 1]);
 		}
-		if (a.stateX<(coll-1))
-		{	//	System.out.print(" right");
-			moves.put(right, maze[a.stateX+1][a.stateY]);
+		if ((a.stateX>0) && (maze[a.stateX-1 ][a.stateY ].getWall()==false))
+		{
+			moves.put(up, maze[a.stateX-1 ][a.stateY ]);
 		}
-	
-		if (a.stateY<row-1) 
-		{//System.out.print(" down");
-			moves.put(down, maze[a.stateX][a.stateY+1]);	
+		if ((a.stateX < row -1) && ( maze[a.stateX +1 ][a.stateY]).getWall()==false)
+		{
+			moves.put(down, maze[a.stateX +1 ][a.stateY]);		
 		}
-	}	
-		counter++;
+		}	
 		return moves;
  }
 	//create Wall Maze
 	public void createWallMaze()
 	{	
-//		String[] arr = numberOfWalls.split(" ");
-//		for(int i=1;i<arr.length;i+=2)
-//		{
-//		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
+		String[] arr = numberOfWalls.split(" ");
+		for(int i=1;i<arr.length;i+=2)
+		{
+		maze[Integer.parseInt(arr[i])][Integer.parseInt(arr[i+1])].setWall(true);
 	
 //		maze[1][0].setWall(true);
 //		maze[2][0].setWall(true);
 //		maze[3][0].setWall(true);
 //		maze[4][0].setWall(true);
-		maze[0][1].setWall(true);
-		maze[0][2].setWall(true);
-		maze[0][3].setWall(true);
-		maze[0][4].setWall(true);
-		//maze[1][1].setWall(true);
+////		maze[0][1].setWall(true);
+////		maze[0][2].setWall(true);
+////		maze[0][3].setWall(true);
+////		maze[0][4].setWall(true);
+//	maze[1][1].setWall(true);
 
-		//}
+		}
 	}		
 
 	@Override
